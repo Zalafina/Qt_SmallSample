@@ -5,7 +5,7 @@
 #include <QHash>
 #include <QVariant>
 #include <QFile>
-#include <QtCore/QMetaEnum>
+#include <QMetaEnum>
 
 class MyTestClass : public QObject
 {
