@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/main.qml</file>
+        <file>qml/pics/AddressBook_48.png</file>
+        <file>qml/pics/AudioPlayer_48.png</file>
+        <file>qml/pics/Camera_48.png</file>
+        <file>qml/pics/DateBook_48.png</file>
+        <file>qml/pics/EMail_48.png</file>
+        <file>qml/pics/TodoList_48.png</file>
+        <file>qml/pics/VideoPlayer_48.png</file>
+    </qresource>
+</RCC>
