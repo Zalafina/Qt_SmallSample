@@ -54,7 +54,7 @@ class DataObject : public QObject
 
 public:
     DataObject(QObject *parent=0);
-    DataObject(const QString &name, const QString &color, QObject *parent=0);
+    DataObject(const QString &name, const QString &color, const QString &color_backup, QObject *parent=0);
 
     QString name() const;
     void setName(const QString &name);
@@ -69,6 +69,7 @@ signals:
 public:
     QString m_name;
     QString m_color;
+    QString m_color_backup;
 //![1]
 };
 //![1]

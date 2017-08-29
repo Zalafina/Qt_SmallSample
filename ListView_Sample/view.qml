@@ -61,7 +61,7 @@ ListView {
 
             onClicked: {
                 console.log("VisualIndex" + visualIndex + "Clicked")
-                mytest.clickInterfaceForQML(visualIndex);
+                mytest.clickInterfaceForQML(visualIndex, model.name);
             }
             Rectangle {
                 id: icon

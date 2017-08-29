@@ -46,8 +46,8 @@ DataObject::DataObject(QObject *parent)
 {
 }
 
-DataObject::DataObject(const QString &name, const QString &color, QObject *parent)
-    : QObject(parent), m_name(name), m_color(color)
+DataObject::DataObject(const QString &name, const QString &color, const QString &color_backup, QObject *parent)
+    : QObject(parent), m_name(name), m_color(color), m_color_backup(color_backup)
 {
 }
 

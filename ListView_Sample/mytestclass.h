@@ -11,13 +11,13 @@ class MyTestClass : public QObject
 public:
     explicit MyTestClass(QObject *parent = 0);    
 
-    Q_INVOKABLE void clickInterfaceForQML(quint32 clickIndex);
+    Q_INVOKABLE void clickInterfaceForQML(quint32 clickIndex, QString itemName);
 signals:
-    void iconClicked(quint32 clickIndex);
+    void iconClicked(quint32 clickIndex, QString itemName);
     void listmodelChanged(quint32 clickIndex);
 
 public slots:
-    void iconClickedInfo(quint32 clickIndex);
+    void iconClickedInfo(quint32 clickIndex, QString itemName);
 
 private:
     void init_AppModelNameMap(void);

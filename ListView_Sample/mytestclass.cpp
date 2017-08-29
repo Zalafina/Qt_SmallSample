@@ -7,7 +7,7 @@ MyTestClass::MyTestClass(QObject *parent) : QObject(parent)
   , m_firstcolor()
   , m_secondcolor()
 {
-    static_cast<void>(QObject::connect(this, SIGNAL(iconClicked(quint32)), this, SLOT(iconClickedInfo(quint32)), Qt::AutoConnection));
+    static_cast<void>(QObject::connect(this, SIGNAL(iconClicked(quint32, QString)), this, SLOT(iconClickedInfo(quint32, QString)), Qt::AutoConnection));
 
     m_firstcolor    << "red"
                     << "green"
@@ -19,43 +19,30 @@ MyTestClass::MyTestClass(QObject *parent) : QObject(parent)
                     << "cyan"
                     << "magenta";
 
-    m_dataList.append(new DataObject("Item 1", m_firstcolor[0]));
-    m_dataList.append(new DataObject("Item 2", m_firstcolor[1]));
-    m_dataList.append(new DataObject("Item 3", m_firstcolor[2]));
-    m_dataList.append(new DataObject("Item 4", m_firstcolor[3]));
+    m_dataList.append(new DataObject("Item 1", m_firstcolor[0], m_secondcolor[0]));
+    m_dataList.append(new DataObject("Item 2", m_firstcolor[1], m_secondcolor[1]));
+    m_dataList.append(new DataObject("Item 3", m_firstcolor[2], m_secondcolor[2]));
+    m_dataList.append(new DataObject("Item 4", m_firstcolor[3], m_secondcolor[3]));
 }
 
-void MyTestClass::clickInterfaceForQML(quint32 clickIndex)
+void MyTestClass::clickInterfaceForQML(quint32 clickIndex, QString itemName)
 {
-    qDebug("Called clickInterfaceForQML(%d)", clickIndex);
-    emit iconClicked(clickIndex);
+    qDebug("clickInterfaceForQML:: Index(%d), itemName(%s)", clickIndex, itemName.toLatin1().constData());
+    emit iconClicked(clickIndex, itemName);
 }
 
-void MyTestClass::iconClickedInfo(quint32 clickIndex)
+void MyTestClass::iconClickedInfo(quint32 clickIndex, QString itemName)
 {
-    static bool itemclickflags[4] = {false};
+    qDebug("iconClickedInfo:: Index(%d), itemName(%s)", clickIndex, itemName.toLatin1().constData());
 
-    qDebug("iconClickedInfo(%d) Called", clickIndex);
-
-    if (clickIndex < 4){
-        if (false == itemclickflags[clickIndex]){
-            dynamic_cast<DataObject*>(m_dataList[clickIndex])->setColor(m_secondcolor[clickIndex]);
-            itemclickflags[clickIndex] = true;
-        }
-        else{
-            dynamic_cast<DataObject*>(m_dataList[clickIndex])->setColor(m_firstcolor[clickIndex]);
-            itemclickflags[clickIndex] = false;
-        }
-    }
-    else{
-        qDebug("iconClickedIndexError!!!");
-        return;
-    }
-
-    for(QObject * const data : m_dataList) {
+    for(const auto data : m_dataList) {
         DataObject *tempdata = dynamic_cast<DataObject*>(data);
-        qDebug("data name:%s", tempdata->m_name.toLatin1().constData());
-        qDebug("data color:%s", tempdata->m_color.toLatin1().constData());
+        if (tempdata->name() == itemName){
+            QString tempstring = tempdata->color();
+            tempdata->setColor(tempdata->m_color_backup);
+            tempdata->m_color_backup = tempstring;
+            qDebug("%s setColor(%s)", tempdata->m_name.toLatin1().constData(), tempdata->m_color.toLatin1().constData());
+        }
     }
 }
 
