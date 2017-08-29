@@ -43,14 +43,12 @@
 
 #include <QObject>
 
-//![0]
 class DataObject : public QObject
 {
     Q_OBJECT
 
     Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
     Q_PROPERTY(QString color READ color WRITE setColor NOTIFY colorChanged)
-//![0]
 
 public:
     DataObject(QObject *parent=0);
@@ -70,8 +68,6 @@ public:
     QString m_name;
     QString m_color;
     QString m_color_backup;
-//![1]
 };
-//![1]
 
 #endif // DATAOBJECT_H

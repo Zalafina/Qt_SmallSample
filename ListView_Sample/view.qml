@@ -74,6 +74,7 @@ ListView {
                 Text {
                     text: model.name + ":" + model.color
                     color : "black"
+                    font.bold : true
                     anchors.centerIn: parent
                 }
                 radius: 3
