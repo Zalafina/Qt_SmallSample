@@ -22,6 +22,10 @@ ListView {
                 console.log("VisualIndex" + visualIndex + "Clicked")
                 mytest.clickInterfaceForQML(visualIndex, model.name);
             }
+            onPressAndHold: {
+                console.log("VisualIndex" + visualIndex + "PressAndHold")
+                mytest.clickInterfaceForQML(visualIndex, model.name);
+            }
             Rectangle {
                 id: icon
                 width: 292; height: 72
