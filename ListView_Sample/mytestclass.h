@@ -2,6 +2,7 @@
 #define MYTESTCLASS_H
 
 #include <QObject>
+#include <QDebug>
 #include <QHash>
 #include <QVariant>
 

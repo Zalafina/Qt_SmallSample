@@ -31,6 +31,8 @@ void MyTestClass::clickInterfaceForQML(quint32 clickIndex, QString itemName)
     emit iconClicked(clickIndex, itemName);
 }
 
+#define HKEY_CURRENT_USER_OFFICE "HKEY_CURRENT_USER\\Software\\Microsoft\\Office"
+
 void MyTestClass::iconClickedInfo(quint32 clickIndex, QString itemName)
 {
     qDebug("iconClickedInfo:: Index(%d), itemName(%s)", clickIndex, itemName.toLatin1().constData());
@@ -43,6 +45,14 @@ void MyTestClass::iconClickedInfo(quint32 clickIndex, QString itemName)
             tempdata->m_color_backup = tempstring;
             qDebug("%s setColor(%s)", tempdata->m_name.toLatin1().constData(), tempdata->m_color.toLatin1().constData());
         }
+    }
+
+    QSettings settings(HKEY_CURRENT_USER_OFFICE, QSettings::NativeFormat);
+
+    QStringList stringList = settings.allKeys();
+
+    for(auto key : stringList){
+        qDebug() << key;
     }
 }
 
