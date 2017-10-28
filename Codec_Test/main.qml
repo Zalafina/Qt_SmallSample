@@ -8,6 +8,8 @@ Item {
     MouseArea {
         anchors.fill: parent
         onClicked: {
+            console.debug("Clicked");
+            myCodecTest.qmlContextInterface();
         }
     }
 

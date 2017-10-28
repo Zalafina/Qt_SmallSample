@@ -20,6 +20,8 @@ signals:
 public slots:
     void timeOutUpdateString(void);
 
+    Q_INVOKABLE void qmlContextInterface(void);
+
 private:
     QTimer *m_timer;
     QQuickView * m_Viewer;

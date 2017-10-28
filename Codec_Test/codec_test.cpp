@@ -30,3 +30,8 @@ void Codec_Test::timeOutUpdateString(void)
         qDebug("qmlTestText has not been found");
     }
 }
+
+void Codec_Test::qmlContextInterface()
+{
+    qDebug() << "qmlContextInterface Called";
+}
