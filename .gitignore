@@ -1,6 +1,8 @@
 # Qt generate file types
 
 build-*/*
+build-*
+*-build-*
 */build-*/*
 *.pro.user
 *.pro.user.*
