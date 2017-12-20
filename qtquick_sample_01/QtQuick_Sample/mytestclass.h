@@ -5,6 +5,9 @@
 #include <QHash>
 #include <QVariant>
 #include <QFile>
+#include <QPixmap>
+#include <QImage>
+#include <QDebug>
 #include <QMetaEnum>
 
 class MyTestClass : public QObject

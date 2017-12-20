@@ -176,6 +176,10 @@ void MyTestClass::loadConfigFile(void)
     qDebug("Called loadConfigFile ~~");
     qDebug("App Thread ID:0x%08X", QThread::currentThreadId());
 
+    QPixmap tempPixmap("D:/Sample_bitmap_01.bmp");
+
+    qDebug() << tempPixmap.isNull();
+
     QSettings generalSettings(QString(APP_MODEL_CONFIG_FILENAME), QSettings::IniFormat);
     bool convert_Result;
     const char * configItemName;
