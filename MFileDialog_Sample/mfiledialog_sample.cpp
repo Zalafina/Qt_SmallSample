@@ -7,7 +7,7 @@ QFileInfoList GetFileList(QString path)
 {
     QFileInfoList final_list;
     QDir dir(path);
-    dir.setSorting(QDir::IgnoreCase | QDir::DirsFirst);
+    dir.setSorting(QDir::IgnoreCase | QDir::DirsFirst | QDir::Name);
     QFileInfoList fileinfolist = dir.entryInfoList(QDir::Dirs | QDir::NoDotAndDotDot| QDir::CaseSensitive | QDir::Files | QDir::Hidden | QDir::System);
 
     for (const QFileInfo &fileinfo : fileinfolist){
@@ -40,7 +40,9 @@ void MFileDialog_Sample::on_mfileDialogButton_clicked()
     MFileDialog fileDialog;
     if (fileDialog.exec() == QDialog::Accepted)
     {
-        for(const QString &filename : fileDialog.selectedFiles()){
+        QStringList selected_files = fileDialog.selectedFiles();
+        //selected_files.sort();
+        for(const QString &filename : selected_files){
             QFileInfo fileinfo_ori(filename);
             QString property;
             if (true == fileinfo_ori.isDir()){
