@@ -41,7 +41,7 @@ void MFileDialog_Sample::on_mfileDialogButton_clicked()
     if (fileDialog.exec() == QDialog::Accepted)
     {
         QStringList selected_files = fileDialog.selectedFiles();
-        //selected_files.sort();
+        selected_files.sort(Qt::CaseInsensitive);
         for(const QString &filename : selected_files){
             QFileInfo fileinfo_ori(filename);
             QString property;
