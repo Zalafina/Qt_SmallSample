@@ -24,12 +24,12 @@ void MD5HashSample::on_pushButton_clicked()
     qDebug() << "MD5-Hash:" << md5hash_string;
 
     // write to md5_hash.ini
-    QSettings md5writeFile(QString("md5_hash.ini"), QSettings::IniFormat);
+    QSettings md5writeFile(QString("config//md5_hash.ini"), QSettings::IniFormat);
     md5writeFile.setValue(QLatin1String("MD5-Hash"), md5_hash);
     md5writeFile.sync();
 
     // read from  md5_hash.ini
-    QSettings md5readFile(QString("md5_hash.ini"), QSettings::IniFormat);
+    QSettings md5readFile(QString("config//md5_hash.ini"), QSettings::IniFormat);
     md5readFile.sync();
 
     if (true == md5readFile.contains("MD5-Hash")){

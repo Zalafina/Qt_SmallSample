@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>RegularTest</class>
+ <widget class="QDialog" name="RegularTest">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>651</width>
+    <height>623</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>RegularTest</string>
+  </property>
+  <widget class="QPlainTextEdit" name="plainTextEdit">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>100</y>
+     <width>481</width>
+     <height>211</height>
+    </rect>
+   </property>
+   <property name="plainText">
+    <string>&lt;/A&gt;&lt;BR&gt;&lt;BR&gt;&lt;A class=class_aid_PRO2_a_xiangce href=&quot;file://design012/项目/AID/2016/4月/B-2016-04-24许先生/往来图文/in/2017年12月7日22时4分54秒.bmp&quot;&gt;&lt;IMG id=id_aid_PRO2_img_xiangce class=class_aid_PRO2_img_xiangce alt=2017年12月7日28时4分57秒.bmp&lt;/A&gt;&lt;BR&gt;&lt;BR&gt;&lt;A class=class_aid_PRO2_a_xiangce href=&quot;file://design012/项目/AID/2016/4月/B-2016-04-24许先生/往来图文/in/2017年12月9日22时4分22秒.bmp&quot;&gt;&lt;IMG id=id_aid_PRO2_img_xiangce class=class_aid_PRO2_img_xiangce alt=2017年12月7日22时4分59秒.bmp</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>30</y>
+     <width>351</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>href=\&quot;(.*)\&quot;&gt;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>40</y>
+     <width>51</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Pattern</string>
+   </property>
+  </widget>
+  <widget class="QPlainTextEdit" name="matchText">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>360</y>
+     <width>481</width>
+     <height>221</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>530</x>
+     <y>30</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>match</string>
+   </property>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
