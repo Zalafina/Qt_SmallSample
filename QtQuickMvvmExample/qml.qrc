@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/Controls/Button.qml</file>
+        <file>qml/Controls/TextBox.qml</file>
+        <file>qml/MainView.qml</file>
+    </qresource>
+</RCC>
