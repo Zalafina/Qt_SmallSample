@@ -22,6 +22,7 @@ Rectangle {
         }
 
         model: DelegateModel {
+            objectName: "qmlVisualModel"
             id: visualModel
 
 //            model: ListModel {
@@ -140,8 +141,10 @@ Rectangle {
                     onEntered: {
                         visualModel.items.move(drag.source.visualIndex, delegateRoot.visualIndex)
                         drag.accepted = true
+                        console.log("SourceIndex:(" + drag.source.visualIndex +")," + "TargetIndex:(" + delegateRoot.visualIndex + ")");
                         if (drag.source.visualIndex !== delegateRoot.visualIndex){
-                            console.log("SourceIndex:(" + drag.source.visualIndex +")," + "TargetIndex:(" + delegateRoot.visualIndex + ")");
+                            mytest.iconDragAndDrop(drag.source.visualIndex, delegateRoot.visualIndex);
+                            //console.log("SourceIndex:(" + drag.source.visualIndex +")," + "TargetIndex:(" + delegateRoot.visualIndex + ")");
                         }
                     }
 
@@ -149,11 +152,19 @@ Rectangle {
                         console.log("onDropped");
                     }
 
+
+                    onPositionChanged: {
+
+                    }
+
+
 //                    onPositionChanged:{
 //                        console.log("SourceIndex:(" + drag.source.visualIndex +")," + "TargetIndex:(" + delegateRoot.visualIndex + ")");
 //                    }
                 }
             }
+
+            //Binding { target: mytest; property: "dataList"; value: visualModel.model }
         }
 
         Component.onCompleted : {

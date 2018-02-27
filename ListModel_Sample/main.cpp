@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine viewer;
 #endif
 
-    MyTestClass * const mytest = new MyTestClass();
+    MyTestClass * const mytest = new MyTestClass(&viewer);
 
 #ifdef USE_QQUICK_VIEW
     viewer.rootContext()->setContextProperty("mytest", mytest);
