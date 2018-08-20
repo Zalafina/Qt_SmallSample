@@ -16,11 +16,13 @@ public:
     ~QPushButton_Test();
 
 private slots:
-    void on_ButtonEnableA_stateChanged(int arg1);
+    void buttonStatusChangedProc(bool status, quint32 buttonindex);
 
-    void on_ButtonEnableB_stateChanged(int arg1);
+    void on_ButtonEnableA_stateChanged(int state);
 
-    void on_ButtonEnableC_stateChanged(int arg1);
+    void on_ButtonEnableB_stateChanged(int state);
+
+    void on_ButtonEnableC_stateChanged(int state);
 
 private:
     Ui::QPushButton_Test *ui;

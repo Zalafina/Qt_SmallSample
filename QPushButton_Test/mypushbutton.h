@@ -3,6 +3,7 @@
 
 #include <QPushButton>
 #include <QEvent>
+#include <QDebug>
 
 class MyPushButton : public QPushButton
 {
@@ -14,6 +15,7 @@ protected:
     void changeEvent(QEvent *event);
 
 signals:
+    void enableStatusChanged(bool status, quint32 buttonindex);
 
 public slots:
 };
