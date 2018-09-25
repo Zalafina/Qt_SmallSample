@@ -54,6 +54,9 @@ int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
+    quint64 mypid = QCoreApplication::applicationPid();
+    qDebug("Process ID:%ld", mypid);
+
     QPushButton *button = new QPushButton("state machine state 1");
 
     QStateMachine machine;
