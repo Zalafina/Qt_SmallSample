@@ -22,10 +22,13 @@ signals:
     void read_sign();
     void write_sign(QString writedata);
     void sendcmd_sign(QString cmd);
+    void attach_cmdwindow_sign(quint64 pid);
 
 private slots:
     void on_pushButton_clicked();
     void getdata_slot(QString info);
+
+    void on_pushButton_2_clicked();
 
 private:
     Ui::QProcessTest *ui;

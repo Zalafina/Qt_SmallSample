@@ -9,7 +9,7 @@ QProcessTest::QProcessTest(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    m_worker = new workerThread(this);
+    m_worker = new workerThread();
     m_workerthread = new QThread();
     m_worker->moveToThread(m_workerthread);
     connect(this, &QProcessTest::IniConsoleThread_sign, m_worker, &workerThread::IniConsoleThreadSlot);
@@ -19,6 +19,7 @@ QProcessTest::QProcessTest(QWidget *parent) :
     connect(this, &QProcessTest::read_sign, m_worker, &workerThread::readSlot);
     connect(m_worker, &workerThread::senddata_sign, this, &QProcessTest::getdata_slot);
     connect(this, &QProcessTest::sendcmd_sign, m_worker, &workerThread::writeSlot);
+    connect(this, &QProcessTest::attach_cmdwindow_sign, m_worker, &workerThread::attachConsoleSlot);
 
     m_workerthread->start();
     emit IniConsoleThread_sign();
@@ -43,4 +44,16 @@ void QProcessTest::on_pushButton_clicked()
 void QProcessTest::getdata_slot(QString info)
 {
     qDebug() << info;
+}
+
+void QProcessTest::on_pushButton_2_clicked()
+{
+    if (false == ui->lineEdit->text().isEmpty()){
+        QString pid_str = ui->lineEdit->text();
+        bool check = false;
+        quint64 pid = pid_str.toULong(&check);
+        if (true == check){
+            emit attach_cmdwindow_sign(pid);
+        }
+    }
 }
