@@ -2,6 +2,7 @@
 #define FPOINTER_H
 
 #include <QDialog>
+#include "fpmap.h"
 
 namespace Ui {
 class FPointer;
@@ -17,6 +18,7 @@ public:
 
 private:
     Ui::FPointer *ui;
+    FPMap *m_fpmap;
 };
 
 #endif // FPOINTER_H

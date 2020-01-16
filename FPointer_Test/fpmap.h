@@ -2,12 +2,24 @@
 #define FPMAP_H
 
 #include <QObject>
+#include <QHash>
 
 typedef struct stHMIEvent {
     quint32     eventId;
     quint32     param;
     quint32     param_Ex[4];
 } HMI_EVENT;
+
+enum
+{
+    FPOINTER_SPID_START,
+    FPOINTER_SPID_TESTA = FPOINTER_SPID_START,
+    FPOINTER_SPID_TESTB,
+    FPOINTER_SPID_TESTC,
+    FPOINTER_SPID_TESTD,
+    FPOINTER_SPID_TESTE,
+    FPOINTER_SPID_END
+};
 
 class FPMap : public QObject
 {
@@ -28,6 +40,8 @@ public:
 
     ProcResult entryFunction(HMI_EVENT &event);
 
+    void start();
+
 signals:
 
 public slots:
@@ -43,7 +57,7 @@ private:
 
 private:
     // Event PreProcess Function Pointer Table
-    QHash<quint32, EventProcFunc> m_EventPreProcessTable;
+    QHash<quint16, EventProcFunc> m_EventPreProcessTable;
 };
 
 #endif // FPMAP_H
