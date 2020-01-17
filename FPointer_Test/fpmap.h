@@ -18,8 +18,12 @@ enum
     FPOINTER_SPID_TESTC,
     FPOINTER_SPID_TESTD,
     FPOINTER_SPID_TESTE,
+    FPOINTER_SPID_TESTF,
+    FPOINTER_SPID_TESTG,
     FPOINTER_SPID_END
 };
+
+typedef quint8 (QObject::*SubrutineFunc)(void);
 
 class FPMap : public QObject
 {
@@ -36,11 +40,15 @@ public:
     };
     Q_ENUM(ProcResult)
 
-    typedef FPMap::ProcResult (FPMap::*EventProcFunc)(HMI_EVENT &event);
+    //typedef quint8 (FPMap::*FPMap_EventProcFunc)(HMI_EVENT &event);
+    //typedef quint8 (QObject::*SubrutineFunc)(void);
 
-    ProcResult entryFunction(HMI_EVENT &event);
+//    ProcResult entryFunction(HMI_EVENT &event);
+    quint8 entryFunction(HMI_EVENT &event);
 
     void start();
+
+    static const SubrutineFunc SubSAT_tbl[];
 
 signals:
 
@@ -55,9 +63,18 @@ private:
     ProcResult procFunction_TestD(HMI_EVENT &event);
     ProcResult procFunction_TestE(HMI_EVENT &event);
 
+    quint8 SubrutineFunc_TestA(void);
+    quint8 SubrutineFunc_TestB(void);
+    quint8 SubrutineFunc_TestC(void);
+    quint8 SubrutineFunc_TestD(void);
+    quint8 SubrutineFunc_TestE(void);
+    quint8 SubrutineFunc_TestF(void);
+    quint8 SubrutineFunc_TestG(void);
+
 private:
     // Event PreProcess Function Pointer Table
-    QHash<quint16, EventProcFunc> m_EventPreProcessTable;
+    //QHash<quint16, EventProcFunc> m_EventPreProcessTable;
+    std::map<quint16, SubrutineFunc> m_EventPreProcessTable;
 };
 
 #endif // FPMAP_H
