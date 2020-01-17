@@ -58,8 +58,8 @@ void FPMap::start()
                 // Do Nothing
             }
 
-            SubrutineFunc SubrutineFuncPtr = SubSAT_tbl[loop];
-            proc_result = (this->*(SubrutineFuncPtr))();
+            //SubrutineFunc SubrutineFuncPtr = SubSAT_tbl[loop];
+            proc_result = (this->*(SubSAT_tbl[loop]))();
         }
     });
 }
